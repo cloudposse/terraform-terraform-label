@@ -1,13 +1,13 @@
 variable "namespace" {
-  description = "Namespace, which could be your organization name, e.g. 'cp' or 'cloudposse'"
+  description = "Namespace, which could be your organization name, e.g. `cp` or `cloudposse`"
 }
 
 variable "stage" {
-  description = "Stage, e.g. 'prod', 'staging', 'dev', or 'test'"
+  description = "Stage, e.g. `prod`, `staging`, `dev`, or `test`"
 }
 
 variable "name" {
-  description = "Solution name, e.g. 'app' or 'jenkins'"
+  description = "Solution name, e.g. `app`"
 }
 
 variable "enabled" {
@@ -18,17 +18,17 @@ variable "enabled" {
 variable "delimiter" {
   type        = "string"
   default     = "-"
-  description = "Delimiter to be used between `name`, `namespace`, `stage`, etc."
+  description = "Delimiter to be used between `namespace`, `name`, `stage` and `attributes`"
 }
 
 variable "attributes" {
   type        = "list"
   default     = []
-  description = "Additional attributes (e.g. `policy` or `role`)"
+  description = "Additional attributes, e.g. `1`"
 }
 
 variable "tags" {
   type        = "map"
   default     = {}
-  description = "Additional tags (e.g. `map('BusinessUnit`,`XYZ`)"
+  description = "Additional tags (e.g. `map(`BusinessUnit`,`XYZ`)"
 }
