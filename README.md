@@ -217,8 +217,11 @@ or [hire us][hire] to help build your next cloud-platform.
 
 ### Contributors
 
-|[![Erik Osterman][erik_img]][erik_web]<br/>[Erik Osterman][erik_web] |[![Igor Rodionov][igor_img]][igor_web]<br/>[Igor Rodionov][igor_img] |[![Konstantin B][konstantin_img]][konstantin_web]<br/>[Konstantin B][konstantin_web] |[![Andriy Knysh][andriy_img]][andriy_web]<br/>[Andriy Knysh][andriy_web] |[![Sergey Vasilyev][sergey_img]][sergey_web]<br/>[Sergey Vasilyev][sergey_web] |
-|---|---|---|---|---|
+|[![Jamie Nelson][bitflight_img]][bitflight_web]<br/>[Jamie Nelson][bitflight_web] |[![Erik Osterman][erik_img]][erik_web]<br/>[Erik Osterman][erik_web] |[![Igor Rodionov][igor_img]][igor_web]<br/>[Igor Rodionov][igor_img] |[![Konstantin B][konstantin_img]][konstantin_web]<br/>[Konstantin B][konstantin_web] |[![Andriy Knysh][andriy_img]][andriy_web]<br/>[Andriy Knysh][andriy_web] |[![Sergey Vasilyev][sergey_img]][sergey_web]<br/>[Sergey Vasilyev][sergey_web] |
+|---|---|---|---|---|---|
+
+[bitflight_img]: https://avatars0.githubusercontent.com/u/25075504?s=400&u=ac7e53bda3706cb9d51907808574b6d342703b3e&v=4
+[bitflight_web]: https://github.com/Jamie-BitFlight
 
 [andriy_img]: https://avatars0.githubusercontent.com/u/7356997?v=4&u=ed9ce1c9151d552d985bdf5546772e14ef7ab617&s=144
 [andriy_web]: https://github.com/aknysh/
