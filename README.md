@@ -11,7 +11,7 @@ It's recommended to use one `terraform-terraform-label` module for every unique 
 For example, if you have 10 instances, there should be 10 different labels.
 However, if you have multiple different kinds of resources (e.g. instances, security groups, file systems, and elastic ips), then they can all share the same label assuming they are logically related.
 
-All [Cloud Posse modules](https://github.com/cloudposse?utf8=%E2%9C%93&q=tf_&type=&language=) use this module to ensure resources can be instantiated multiple times within an account and without conflict.
+All [Cloud Posse modules](https://github.com/cloudposse?utf8=%E2%9C%93&q=terraform-&type=&language=) use this module to ensure resources can be instantiated multiple times within an account and without conflict.
 
 **NOTE:** The second `terraform` word in `terraform-terraform-label` refers to the primary Terraform provider used in this module.
 
