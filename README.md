@@ -24,7 +24,7 @@ Include this repository as a module in your existing terraform code:
 
 ```hcl
 module "eg_prod_bastion_label" {
-  source     = "github.com/cloudposse/terraform-terraform-label.git?ref=master"
+  source     = "git::https://github.com/cloudposse/terraform-terraform-label.git?ref=master"
   namespace  = "eg"
   stage      = "prod"
   name       = "bastion"
@@ -68,7 +68,7 @@ Here is a more complex example with two instances using two different labels. No
 
 ```hcl
 module "eg_prod_bastion_abc_label" {
-  source     = "github.com/cloudposse/terraform-terraform-label.git?ref=master"
+  source     = "git::https://github.com/cloudposse/terraform-terraform-label.git?ref=master"
   namespace  = "eg"
   stage      = "prod"
   name       = "bastion"
@@ -95,7 +95,7 @@ resource "aws_instance" "eg_prod_bastion_abc" {
 }
 
 module "eg_prod_bastion_xyz_label" {
-  source     = "github.com/cloudposse/terraform-null-label.git?ref=master"
+  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=master"
   namespace  = "eg"
   stage      = "prod"
   name       = "bastion"
