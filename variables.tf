@@ -1,12 +1,15 @@
 variable "namespace" {
+  default     = "REQUIRED"
   description = "Namespace, which could be your organization name, e.g. `cp` or `cloudposse`"
 }
 
 variable "stage" {
+  default     = "REQUIRED"
   description = "Stage, e.g. `prod`, `staging`, `dev`, or `test`"
 }
 
 variable "name" {
+  default     = "REQUIRED"
   description = "Solution name, e.g. `app`"
 }
 
