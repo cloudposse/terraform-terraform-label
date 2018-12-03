@@ -32,3 +32,8 @@ variable "tags" {
   default     = {}
   description = "Additional tags (e.g. `map(`BusinessUnit`,`XYZ`)"
 }
+
+variable "convert_case" {
+  description = "Convert fields to lower case"
+  default     = "true"
+}
