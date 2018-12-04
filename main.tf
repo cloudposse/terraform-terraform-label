@@ -3,6 +3,10 @@ locals {
 }
 
 locals {
+  convert_case = "${var.convert_case == "true" ? true : false }"
+ }
+
+locals {
   transformed_tags = "${local.convert_case == true ? lower(local.original_tags) : local.original_tags}"
 }
 
