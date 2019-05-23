@@ -1,23 +1,23 @@
 output "id" {
-  value = "${module.label.id}"
+  value = module.label.id
 }
 
 output "name" {
-  value = "${module.label.name}"
+  value = module.label.name
 }
 
 output "namespace" {
-  value = "${module.label.namespace}"
+  value = module.label.namespace
 }
 
 output "stage" {
-  value = "${module.label.stage}"
+  value = module.label.stage
 }
 
 output "attributes" {
-  value = "${module.label.attributes}"
+  value = module.label.attributes
 }
 
 output "tags" {
-  value = "${module.label.tags}"
+  value = module.label.tags
 }
