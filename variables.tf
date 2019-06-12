@@ -16,19 +16,19 @@ variable "enabled" {
 }
 
 variable "delimiter" {
-  type        = "string"
+  type        = string
   default     = "-"
   description = "Delimiter to be used between `namespace`, `name`, `stage` and `attributes`"
 }
 
 variable "attributes" {
-  type        = "list"
+  type        = list(string)
   default     = []
   description = "Additional attributes, e.g. `1`"
 }
 
 variable "tags" {
-  type        = "map"
+  type        = map(string)
   default     = {}
   description = "Additional tags (e.g. `map(`BusinessUnit`,`XYZ`)"
 }
@@ -37,3 +37,4 @@ variable "convert_case" {
   description = "Convert fields to lower case"
   default     = "true"
 }
+
