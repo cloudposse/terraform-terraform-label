@@ -12,13 +12,12 @@ locals {
   delimiter  = var.enabled ? (var.convert_case ? lower(format("%v", var.delimiter)) : format("%v", var.delimiter)) : ""
   attributes = var.enabled ? (var.convert_case ? lower(format("%v", join(var.delimiter, compact(var.attributes)))) : format("%v", join(var.delimiter, compact(var.attributes)))) : ""
 
-  # Merge input tags with our tags.
-  # Note: `Name` has a special meaning in AWS and we need to disamgiuate it by using the computed `id`
   tags = merge(
-    map(
-      "Name", local.id,
-      "Namespace", local.namespace,
-      "Stage", local.stage
-    ), var.tags
+    {
+      "Name"      = local.id
+      "Namespace" = local.namespace
+      "Stage"     = local.stage
+    },
+    var.tags
   )
 }
