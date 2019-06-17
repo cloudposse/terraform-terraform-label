@@ -3,7 +3,7 @@
 
 [![Cloud Posse][logo]](https://cpco.io/homepage)
 
-# terraform-terraform-label [![Build Status](https://travis-ci.org/cloudposse/terraform-terraform-label.svg?branch=master)](https://travis-ci.org/cloudposse/terraform-terraform-label) [![Latest Release](https://img.shields.io/github/release/cloudposse/terraform-terraform-label.svg)](https://github.com/cloudposse/terraform-terraform-label/releases/latest) [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
+# terraform-terraform-label [![Codefresh Build Status](https://g.codefresh.io/api/badges/pipeline/cloudposse/cloudposse%2Fterraform-null-label%2Ftest?type=cf-1)](https://g.codefresh.io/public/accounts/cloudposse/pipelines/cloudposse/terraform-null-label/test) [![Latest Release](https://img.shields.io/github/release/cloudposse/terraform-terraform-label.svg)](https://github.com/cloudposse/terraform-terraform-label/releases/latest) [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
 
 
 Terraform module designed to generate consistent label names and tags for resources. Use `terraform-terraform-label` to implement a strict naming convention.
@@ -15,7 +15,7 @@ A label follows the following convention: `{namespace}-{stage}-{name}-{attribute
 
 It's recommended to use one `terraform-terraform-label` module for every unique resource of a given resource type.
 For example, if you have 10 instances, there should be 10 different labels.
-However, if you have multiple different kinds of resources (e.g. instances, security groups, file systems, and elastic ips), then they can all share the same label assuming they are logically related.
+However, if you have multiple different kinds of resources (e.g. instances, security groups, file systems, and elastic IPs), then they can all share the same label assuming they are logically related.
 
 All [Cloud Posse modules](https://github.com/cloudposse?utf8=%E2%9C%93&q=terraform-&type=&language=) use this module to ensure resources can be instantiated multiple times within an account and without conflict.
 
@@ -55,6 +55,11 @@ We literally have [*hundreds of terraform modules*][terraform_modules] that are 
 
 ## Usage
 
+
+**IMPORTANT:** The `master` branch is used in `source` just as an example. In your code, do not pin to `master` because there may be breaking changes between releases.
+Instead pin to the release tag (e.g. `?ref=tags/x.y.z`) of one of our [latest releases](https://github.com/cloudposse/terraform-terraform-label/releases).
+
+
 ### Simple Example
 
 Include this repository as a module in your existing terraform code:
@@ -67,7 +72,11 @@ module "eg_prod_bastion_label" {
   name       = "bastion"
   attributes = ["public"]
   delimiter  = "-"
-  tags       = "${map("BusinessUnit", "XYZ", "Snapshot", "true")}"
+
+  tags = {
+    "BusinessUnit" = "XYZ",
+    "Snapshot"     = "true"
+  }
 }
 ```
 
@@ -78,7 +87,7 @@ Now reference the label when creating an instance (for example):
 ```hcl
 resource "aws_instance" "eg_prod_bastion_public" {
   instance_type = "t1.micro"
-  tags          = "${module.eg_prod_bastion_label.tags}"
+  tags          = module.eg_prod_bastion_label.tags
 }
 ```
 
@@ -86,9 +95,9 @@ Or define a security group:
 
 ```hcl
 resource "aws_security_group" "eg_prod_bastion_public" {
-  vpc_id = "${var.vpc_id}"
-  name   = "${module.eg_prod_bastion_label.id}"
-  tags   = "${module.eg_prod_bastion_label.tags}"
+  vpc_id = var.vpc_id
+  name   = module.eg_prod_bastion_label.id
+  tags   = module.eg_prod_bastion_label.tags
   egress {
     from_port   = 0
     to_port     = 0
@@ -111,12 +120,15 @@ module "eg_prod_bastion_abc_label" {
   name       = "bastion"
   attributes = ["abc"]
   delimiter  = "-"
-  tags       = "${map("BusinessUnit", "ABC")}"
+
+  tags = {
+    "BusinessUnit" = "ABC"
+  }
 }
 
 resource "aws_security_group" "eg_prod_bastion_abc" {
-  name = "${module.eg_prod_bastion_abc_label.id}"
-  tags = "${module.eg_prod_bastion_abc_label.tags}"
+  name = module.eg_prod_bastion_abc_label.id
+  tags = module.eg_prod_bastion_abc_label.tags
   ingress {
     from_port   = 22
     to_port     = 22
@@ -127,23 +139,26 @@ resource "aws_security_group" "eg_prod_bastion_abc" {
 
 resource "aws_instance" "eg_prod_bastion_abc" {
   instance_type          = "t1.micro"
-  tags                   = "${module.eg_prod_bastion_abc_label.tags}"
-  vpc_security_group_ids = ["${aws_security_group.eg_prod_bastion_abc.id}"]
+  tags                   = module.eg_prod_bastion_abc_label.tags
+  vpc_security_group_ids = [aws_security_group.eg_prod_bastion_abc.id]
 }
 
 module "eg_prod_bastion_xyz_label" {
-  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=master"
+  source     = "git::https://github.com/cloudposse/terraform-terraform-label.git?ref=master"
   namespace  = "eg"
   stage      = "prod"
   name       = "bastion"
   attributes = ["xyz"]
   delimiter  = "-"
-  tags       = "${map("BusinessUnit", "XYZ")}"
+
+  tags = {
+    "BusinessUnit" = "XYZ"
+  }
 }
 
 resource "aws_security_group" "eg_prod_bastion_xyz" {
-  name = "module.eg_prod_bastion_xyz_label.id"
-  tags = "${module.eg_prod_bastion_xyz_label.tags}"
+  name = module.eg_prod_bastion_xyz_label.id
+  tags = module.eg_prod_bastion_xyz_label.tags
   ingress {
     from_port   = 22
     to_port     = 22
@@ -154,8 +169,8 @@ resource "aws_security_group" "eg_prod_bastion_xyz" {
 
 resource "aws_instance" "eg_prod_bastion_xyz" {
   instance_type          = "t1.micro"
-  tags                   = "${module.eg_prod_bastion_xyz_label.tags}"
-  vpc_security_group_ids = ["${aws_security_group.eg_prod_bastion_xyz.id}"]
+  tags                   = module.eg_prod_bastion_xyz_label.tags
+  vpc_security_group_ids = [aws_security_group.eg_prod_bastion_xyz.id]
 }
 ```
 
@@ -174,25 +189,25 @@ Available targets:
   lint                                Lint terraform code
 
 ```
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| attributes | Additional attributes, e.g. `1` | list | `<list>` | no |
-| convert_case | Convert fields to lower case | string | `true` | no |
-| delimiter | Delimiter to be used between `namespace`, `name`, `stage` and `attributes` | string | `-` | no |
-| enabled | Set to false to prevent the module from creating any resources | string | `true` | no |
-| name | Solution name, e.g. `app` | string | - | yes |
-| namespace | Namespace, which could be your organization name, e.g. `cp` or `cloudposse` | string | - | yes |
-| stage | Stage, e.g. `prod`, `staging`, `dev`, or `test` | string | - | yes |
-| tags | Additional tags (e.g. `map(`BusinessUnit`,`XYZ`) | map | `<map>` | no |
+| attributes | Additional attributes (e.g. `1`) | list(string) | `<list>` | no |
+| convert_case | Convert fields to lower case | bool | `true` | no |
+| delimiter | Delimiter to be used between `namespace`, `stage`, `name` and `attributes` | string | `-` | no |
+| enabled | Set to false to prevent the module from creating any resources | bool | `true` | no |
+| name | Solution name, e.g. `app` or `jenkins` | string | `` | no |
+| namespace | Namespace, which could be your organization name or abbreviation, e.g. 'eg' or 'cp' | string | `` | no |
+| stage | Stage, e.g. 'prod', 'staging', 'dev' | string | `` | no |
+| tags | Additional tags (e.g. `map('BusinessUnit','XYZ')` | map(string) | `<map>` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
 | attributes | Normalized attributes |
+| delimiter | Delimiter between `namespace`, `stage`, `name` and `attributes` |
 | id | Disambiguated ID |
 | name | Normalized name |
 | namespace | Normalized namespace |
@@ -279,7 +294,7 @@ In general, PRs are welcome. We follow the typical "fork-and-pull" Git workflow.
 
 ## Copyright
 
-Copyright © 2017-2018 [Cloud Posse, LLC](https://cpco.io/copyright)
+Copyright © 2017-2019 [Cloud Posse, LLC](https://cpco.io/copyright)
 
 
 
