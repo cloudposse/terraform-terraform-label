@@ -3,7 +3,7 @@
 
 [![Cloud Posse][logo]](https://cpco.io/homepage)
 
-# terraform-terraform-label [![Codefresh Build Status](https://g.codefresh.io/api/badges/pipeline/cloudposse/cloudposse%2Fterraform-null-label%2Ftest?type=cf-1)](https://g.codefresh.io/public/accounts/cloudposse/pipelines/cloudposse/terraform-null-label/test) [![Latest Release](https://img.shields.io/github/release/cloudposse/terraform-terraform-label.svg)](https://github.com/cloudposse/terraform-terraform-label/releases/latest) [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
+# terraform-terraform-label [![Codefresh Build Status](https://g.codefresh.io/api/badges/pipeline/cloudposse/terraform-modules%2Fterraform-terraform-label?type=cf-1)](https://g.codefresh.io/public/accounts/cloudposse/pipelines/5d087a11a52a3d5fd7db71ea) [![Latest Release](https://img.shields.io/github/release/cloudposse/terraform-terraform-label.svg)](https://github.com/cloudposse/terraform-terraform-label/releases/latest) [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
 
 
 Terraform module designed to generate consistent label names and tags for resources. Use `terraform-terraform-label` to implement a strict naming convention.
