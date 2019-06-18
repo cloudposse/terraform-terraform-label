@@ -3,7 +3,7 @@
 
 [![Cloud Posse][logo]](https://cpco.io/homepage)
 
-# terraform-terraform-label [![Codefresh Build Status](https://g.codefresh.io/api/badges/pipeline/cloudposse/cloudposse%2Fterraform-terraform-label%2Ftest?type=cf-1)](https://g.codefresh.io/public/accounts/cloudposse/pipelines/cloudposse/terraform-terraform-label/test) [![Latest Release](https://img.shields.io/github/release/cloudposse/terraform-terraform-label.svg)](https://github.com/cloudposse/terraform-terraform-label/releases/latest) [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
+# terraform-terraform-label [![Codefresh Build Status](https://g.codefresh.io/api/badges/pipeline/cloudposse/terraform-modules%2Fterraform-terraform-label?branch=master&key=eyJhbGciOiJIUzI1NiJ9.NWEwMTJmNWM3Yjg3YTQwMDAxYTlkMjU0.UwxTSXZGXq3wPQjj3O1k71kQsGuWGlzgkp9V2-llce8&type=cf-1)](https://g.codefresh.io/pipelines/terraform-terraform-label/builds?repoOwner=cloudposse&repoName=terraform-terraform-label&serviceName=cloudposse%2Fterraform-terraform-label&filter=trigger:build~Build;branch:master;pipeline:5d087a11a52a3d5fd7db71ea~terraform-terraform-label) [![Latest Release](https://img.shields.io/github/release/cloudposse/terraform-terraform-label.svg)](https://github.com/cloudposse/terraform-terraform-label/releases/latest) [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
 
 
 Terraform module designed to generate consistent label names and tags for resources. Use `terraform-terraform-label` to implement a strict naming convention.
