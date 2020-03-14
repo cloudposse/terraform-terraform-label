@@ -1,7 +1,7 @@
 module "label1" {
   source     = "../../"
   namespace  = "Namespace"
-  stage      = "Stage"
+  environment      = "environment"
   name       = "Name"
   attributes = ["1", "2", "3"]
   delimiter  = "-"
@@ -23,8 +23,8 @@ output "label1_namespace" {
   value = module.label1.namespace
 }
 
-output "label1_stage" {
-  value = module.label1.stage
+output "label1_environment" {
+  value = module.label1.environment
 }
 
 output "label1_attributes" {
@@ -40,7 +40,7 @@ output "label1" {
     id         = module.label1.id
     name       = module.label1.name
     namespace  = module.label1.namespace
-    stage      = module.label1.stage
+    environment      = module.label1.environment
     attributes = module.label1.attributes
     delimiter  = module.label1.delimiter
   }

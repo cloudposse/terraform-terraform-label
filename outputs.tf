@@ -13,14 +13,14 @@ output "namespace" {
   description = "Normalized namespace"
 }
 
-output "stage" {
-  value       = local.stage
-  description = "Normalized stage"
+output "environment" {
+  value       = local.environment
+  description = "Normalized environment"
 }
 
 output "delimiter" {
   value       = local.delimiter
-  description = "Delimiter between `namespace`, `stage`, `name` and `attributes`"
+  description = "Delimiter between `namespace`, `environment`, `name` and `attributes`"
 }
 
 output "attributes" {

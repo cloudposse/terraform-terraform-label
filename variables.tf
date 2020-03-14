@@ -4,10 +4,10 @@ variable "namespace" {
   description = "Namespace, which could be your organization name or abbreviation, e.g. 'eg' or 'cp'"
 }
 
-variable "stage" {
+variable "environment" {
   type        = string
   default     = ""
-  description = "Stage, e.g. 'prod', 'staging', 'dev'"
+  description = "environment, e.g. 'prod', 'staging', 'dev'"
 }
 
 variable "name" {
@@ -19,7 +19,7 @@ variable "name" {
 variable "delimiter" {
   type        = string
   default     = "-"
-  description = "Delimiter to be used between `namespace`, `stage`, `name` and `attributes`"
+  description = "Delimiter to be used between `namespace`, `environment`, `name` and `attributes`"
 }
 
 variable "attributes" {
