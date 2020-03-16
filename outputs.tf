@@ -3,9 +3,9 @@ output "id" {
   description = "Disambiguated ID"
 }
 
-output "name" {
-  value       = local.name
-  description = "Normalized name"
+output "application" {
+  value       = local.application
+  description = "Normalized application name"
 }
 
 output "namespace" {
@@ -31,4 +31,9 @@ output "attributes" {
 output "tags" {
   value       = local.tags
   description = "Normalized Tag map"
+}
+
+output "domain_name" {
+  value       = local.domain_name
+  description = "Domain name to be used on Route 53 DNS records"
 }

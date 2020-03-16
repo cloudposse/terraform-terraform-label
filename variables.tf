@@ -10,10 +10,10 @@ variable "environment" {
   description = "environment, e.g. 'prod', 'staging', 'dev'"
 }
 
-variable "name" {
+variable "application" {
   type        = string
   default     = ""
-  description = "Solution name, e.g. `app` or `jenkins`"
+  description = "Application name, e.g. `mycool-api` or `jenkins`"
 }
 
 variable "delimiter" {
@@ -44,4 +44,16 @@ variable "convert_case" {
   type        = bool
   default     = true
   description = "Convert fields to lower case"
+}
+
+variable "business_owner" {
+  type        = string
+  default     = ""
+  description = "Resource business owner tag for billing purposes"
+}
+
+variable "service" {
+  type        = string
+  default     = ""
+  description = "Service that application is part of, (e.g. `transaction`, `payout`)"
 }
