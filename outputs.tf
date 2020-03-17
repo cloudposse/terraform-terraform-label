@@ -3,14 +3,19 @@ output "id" {
   description = "Disambiguated ID"
 }
 
+output "namespace" {
+  value       = local.namespace
+  description = "Normalized namespace"
+}
+
 output "application" {
   value       = local.application
   description = "Normalized application name"
 }
 
-output "namespace" {
-  value       = local.namespace
-  description = "Normalized namespace"
+output "service" {
+  value       = local.service
+  description = "Normalized service"
 }
 
 output "environment" {
@@ -18,9 +23,9 @@ output "environment" {
   description = "Normalized environment"
 }
 
-output "delimiter" {
-  value       = local.delimiter
-  description = "Delimiter between `namespace`, `environment`, `name` and `attributes`"
+output "business_owner" {
+  value       = local.business_owner
+  description = "Normalized business_owner name"
 }
 
 output "attributes" {
@@ -28,12 +33,12 @@ output "attributes" {
   description = "Normalized attributes"
 }
 
-output "tags" {
-  value       = local.tags
-  description = "Normalized Tag map"
-}
-
 output "domain_name" {
   value       = local.domain_name
   description = "Domain name to be used on Route 53 DNS records"
+}
+
+output "tags" {
+  value       = local.tags
+  description = "Normalized Tag map"
 }
