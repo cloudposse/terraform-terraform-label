@@ -74,12 +74,12 @@ Now reference the label when creating other resources (for example):
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:-----:|
-| application | Application name, e.g. 'mycool-api' or 'jenkins' | `string` | `""` | no |
-| service | Service that application is part of, e.g. 'transaction', 'payout' | `string` | `""` | no |
-| environment | Environment, e.g. 'production', 'staging', 'homolog' | `string` | `""` | no |
+| application | Application name, e.g. 'mycool-api' or 'jenkins' | `string` | `""` | yes |
+| service | Service that application is part of, e.g. 'transaction', 'payout' | `string` | `""` | yes |
+| environment | Environment, e.g. 'production', 'staging', 'homolog' | `string` | `""` | yes |
 | namespace | Namespace, which could be your organization name or abbreviation, e.g. 'gsp' or 'cp' | `string` | `""` | no |
 | attributes | Additional attributes, e.g. '1', 'blue', 'green' | `list(string)` | `[]` | no |
-| business\_owner | Resource business owner tag for billing purposes | `string` | `""` | no |
+| business\_owner | Resource business owner tag for billing purposes | `string` | `""` | yes |
 | tags | Additional tags, e.g. 'map('shutdown','true')' | `map(string)` | `{}` | no |
 
 
