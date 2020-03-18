@@ -36,7 +36,7 @@ logically related. Example:
       }
     }
 
-Now reference the label when creating other resources (for example):
+Now reference the label when creating resources:
 
     resource "aws_instance" "app" {
       name          = module.payments_app_label.id
@@ -96,3 +96,18 @@ Now reference the label when creating other resources (for example):
 | business\_owner | Normalized business\_owner name |
 | domain\_name | Domain name to be used on Route 53 records |
 | tags | Normalized Tag map |
+
+## Examples
+
+|application|environment|namespace|attributes|**generated id**|
+|-----------|-----------|---------|----------|------------|
+|`payments`|`production`|`rds`|`master`|`payments-production-rds-master`|
+|`payments`|`production`|`rds`|`slave`|`payments-production-rds-slave`|
+|`transfers`|`homolog`|||`transfers-homolog`|
+|`transfers`|`homolog`|`iam`||`transfers-homolog-iam`|
+|`transfers`|`production`||`green`|`transfers-production-green`|
+|`transfers`|`production`||`blue`|`transfers-production-blue`|
+|`backoffice`|`staging`|`mongo`|`1`|`backoffice-staging-mongo-1`|
+|`backoffice`|`staging`|`mongo`|`2`|`backoffice-staging-mongo-2`|
+|`dashboard`|`production`|`s3`|`["backup", "us-east-1"]`|`dashboard-production-s3-backup-us-east-1`|
+|`banking`|`production`|`vpc`||`banking-production-vpc`|
