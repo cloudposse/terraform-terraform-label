@@ -1,39 +1,18 @@
----
-#
-# This is the canonical configuration for the `README.md`
-# Run `make readme` to rebuild the `README.md`
-#
-
-# Name of this project
 name: terraform-terraform-label
-
-# Logo for this project
-#logo: docs/logo.png
-
-# License of this project
-license: "APACHE2"
-
-# Canonical GitHub repo
+license: APACHE2
 github_repo: cloudposse/terraform-terraform-label
-
-# Badges to display
 badges:
-  - name: "Codefresh Build Status"
-    image: "https://g.codefresh.io/api/badges/pipeline/cloudposse/terraform-modules%2Fterraform-terraform-label?type=cf-1"
-    url: "https://g.codefresh.io/public/accounts/cloudposse/pipelines/5d087a11a52a3d5fd7db71ea"
-  - name: "Latest Release"
-    image: "https://img.shields.io/github/release/cloudposse/terraform-terraform-label.svg"
-    url: "https://github.com/cloudposse/terraform-terraform-label/releases/latest"
-  - name: "Slack Community"
-    image: "https://slack.cloudposse.com/badge.svg"
-    url: "https://slack.cloudposse.com"
-
+- name: Latest Release
+  image: https://img.shields.io/github/release/cloudposse/terraform-terraform-label.svg
+  url: https://github.com/cloudposse/terraform-terraform-label/releases/latest
+- name: Slack Community
+  image: https://slack.cloudposse.com/badge.svg
+  url: https://slack.cloudposse.com
 related:
-  - name: "terraform-null-label"
-    description: "Terraform Module to define a consistent naming convention by (namespace, stage, name, [attributes])"
-    url: "https://github.com/cloudposse/terraform-null-label"
-
-# Short description of this project
+- name: terraform-null-label
+  description: Terraform Module to define a consistent naming convention by (namespace,
+    stage, name, [attributes])
+  url: https://github.com/cloudposse/terraform-null-label
 description: |-
   Terraform module designed to generate consistent label names and tags for resources. Use `terraform-terraform-label` to implement a strict naming convention.
 
@@ -49,8 +28,6 @@ description: |-
   All [Cloud Posse modules](https://github.com/cloudposse?utf8=%E2%9C%93&q=terraform-&type=&language=) use this module to ensure resources can be instantiated multiple times within an account and without conflict.
 
   **NOTE:** The second `terraform` word in `terraform-terraform-label` refers to the primary Terraform provider used in this module.
-
-# How to use this project
 usage: |-
   ### Simple Example
 
@@ -165,18 +142,15 @@ usage: |-
     vpc_security_group_ids = [aws_security_group.eg_prod_bastion_xyz.id]
   }
   ```
-
 include:
-  - "docs/targets.md"
-  - "docs/terraform.md"
-
-# Contributors to this project
+- docs/targets.md
+- docs/terraform.md
 contributors:
-  - name: "Erik Osterman"
-    github: "osterman"
-  - name: "Sarkis Varozian"
-    github: "sarkis"
-  - name: "Andriy Knysh"
-    github: "aknysh"
-  - name: "Jamie Nelson"
-    github: "Jamie-BitFlight"
+- name: Erik Osterman
+  github: osterman
+- name: Sarkis Varozian
+  github: sarkis
+- name: Andriy Knysh
+  github: aknysh
+- name: Jamie Nelson
+  github: Jamie-BitFlight
