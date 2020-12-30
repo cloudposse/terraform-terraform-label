@@ -35,7 +35,9 @@ usage: |-
 
   ```hcl
   module "eg_prod_bastion_label" {
-    source     = "git::https://github.com/cloudposse/terraform-terraform-label.git?ref=master"
+    source = "cloudposse/label/terraform"
+    # Cloud Posse recommends pinning every module to a specific version
+    # version = "x.x.x"
     namespace  = "eg"
     stage      = "prod"
     name       = "bastion"
@@ -83,7 +85,9 @@ usage: |-
 
   ```hcl
   module "eg_prod_bastion_abc_label" {
-    source     = "git::https://github.com/cloudposse/terraform-terraform-label.git?ref=master"
+    source = "cloudposse/label/terraform"
+    # Cloud Posse recommends pinning every module to a specific version
+    # version = "x.x.x"
     namespace  = "eg"
     stage      = "prod"
     name       = "bastion"
@@ -113,7 +117,9 @@ usage: |-
   }
 
   module "eg_prod_bastion_xyz_label" {
-    source     = "git::https://github.com/cloudposse/terraform-terraform-label.git?ref=master"
+    source = "cloudposse/label/terraform"
+    # Cloud Posse recommends pinning every module to a specific version
+    # version = "x.x.x"
     namespace  = "eg"
     stage      = "prod"
     name       = "bastion"

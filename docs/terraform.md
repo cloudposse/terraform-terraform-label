@@ -1,3 +1,4 @@
+<!-- markdownlint-disable -->
 ## Requirements
 
 | Name | Version |
@@ -33,3 +34,4 @@ No provider.
 | stage | Normalized stage |
 | tags | Normalized Tag map |
 
+<!-- markdownlint-restore -->
