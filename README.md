@@ -1,4 +1,6 @@
+<!-- markdownlint-disable -->
 # terraform-terraform-label [![Latest Release](https://img.shields.io/github/release/cloudposse/terraform-terraform-label.svg)](https://github.com/cloudposse/terraform-terraform-label/releases/latest) [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
+<!-- markdownlint-restore -->
 
 [![README Header][readme_header_img]][readme_header_link]
 
@@ -75,8 +77,15 @@ We literally have [*hundreds of terraform modules*][terraform_modules] that are 
 ## Usage
 
 
-**IMPORTANT:** The `master` branch is used in `source` just as an example. In your code, do not pin to `master` because there may be breaking changes between releases.
-Instead pin to the release tag (e.g. `?ref=tags/x.y.z`) of one of our [latest releases](https://github.com/cloudposse/terraform-terraform-label/releases).
+**IMPORTANT:** We do not pin modules to versions in our examples because of the
+difficulty of keeping the versions in the documentation in sync with the latest released versions.
+We highly recommend that in your code you pin the version to the exact version you are
+using so that your infrastructure remains stable, and update versions in a
+systematic way so that they do not catch you by surprise.
+
+Also, because of a bug in the Terraform registry ([hashicorp/terraform#21417](https://github.com/hashicorp/terraform/issues/21417)),
+the registry shows many of our inputs as required when in fact they are optional.
+The table below correctly indicates which inputs are required.
 
 
 ### Simple Example
@@ -85,7 +94,9 @@ Include this repository as a module in your existing terraform code:
 
 ```hcl
 module "eg_prod_bastion_label" {
-  source     = "git::https://github.com/cloudposse/terraform-terraform-label.git?ref=master"
+  source = "cloudposse/label/terraform"
+  # Cloud Posse recommends pinning every module to a specific version
+  # version = "x.x.x"
   namespace  = "eg"
   stage      = "prod"
   name       = "bastion"
@@ -133,7 +144,9 @@ Here is a more complex example with two instances using two different labels. No
 
 ```hcl
 module "eg_prod_bastion_abc_label" {
-  source     = "git::https://github.com/cloudposse/terraform-terraform-label.git?ref=master"
+  source = "cloudposse/label/terraform"
+  # Cloud Posse recommends pinning every module to a specific version
+  # version = "x.x.x"
   namespace  = "eg"
   stage      = "prod"
   name       = "bastion"
@@ -163,7 +176,9 @@ resource "aws_instance" "eg_prod_bastion_abc" {
 }
 
 module "eg_prod_bastion_xyz_label" {
-  source     = "git::https://github.com/cloudposse/terraform-terraform-label.git?ref=master"
+  source = "cloudposse/label/terraform"
+  # Cloud Posse recommends pinning every module to a specific version
+  # version = "x.x.x"
   namespace  = "eg"
   stage      = "prod"
   name       = "bastion"
@@ -210,6 +225,7 @@ Available targets:
 
 ```
 <!-- markdownlint-restore -->
+<!-- markdownlint-disable -->
 ## Requirements
 
 | Name | Version |
@@ -245,6 +261,7 @@ No provider.
 | stage | Normalized stage |
 | tags | Normalized Tag map |
 
+<!-- markdownlint-restore -->
 
 
 
@@ -391,8 +408,10 @@ Check out [our other projects][github], [follow us on twitter][twitter], [apply 
 
 ### Contributors
 
+<!-- markdownlint-disable -->
 |  [![Erik Osterman][osterman_avatar]][osterman_homepage]<br/>[Erik Osterman][osterman_homepage] | [![Sarkis Varozian][sarkis_avatar]][sarkis_homepage]<br/>[Sarkis Varozian][sarkis_homepage] | [![Andriy Knysh][aknysh_avatar]][aknysh_homepage]<br/>[Andriy Knysh][aknysh_homepage] | [![Jamie Nelson][Jamie-BitFlight_avatar]][Jamie-BitFlight_homepage]<br/>[Jamie Nelson][Jamie-BitFlight_homepage] |
 |---|---|---|---|
+<!-- markdownlint-restore -->
 
   [osterman_homepage]: https://github.com/osterman
   [osterman_avatar]: https://img.cloudposse.com/150x150/https://github.com/osterman.png
