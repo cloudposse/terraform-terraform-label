@@ -9,6 +9,14 @@
 
 No provider.
 
+## Modules
+
+No Modules.
+
+## Resources
+
+No resources.
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -20,7 +28,7 @@ No provider.
 | name | Solution name, e.g. `app` or `jenkins` | `string` | `""` | no |
 | namespace | Namespace, which could be your organization name or abbreviation, e.g. 'eg' or 'cp' | `string` | `""` | no |
 | stage | Stage, e.g. 'prod', 'staging', 'dev' | `string` | `""` | no |
-| tags | Additional tags (e.g. `map('BusinessUnit','XYZ')` | `map(string)` | `{}` | no |
+| tags | Additional tags (e.g. `map('BusinessUnit','XYZ')`) | `map(string)` | `{}` | no |
 
 ## Outputs
 
@@ -33,5 +41,4 @@ No provider.
 | namespace | Normalized namespace |
 | stage | Normalized stage |
 | tags | Normalized Tag map |
-
 <!-- markdownlint-restore -->
