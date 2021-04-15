@@ -1,5 +1,5 @@
 locals {
-  original_tags    = join(var.delimiter, compact(concat(list(var.namespace, var.stage, var.name), var.attributes)))
+  original_tags    = join(var.delimiter, compact(concat(tolist([var.namespace, var.stage, var.name]), var.attributes)))
   transformed_tags = var.convert_case ? lower(local.original_tags) : local.original_tags
 }
 
