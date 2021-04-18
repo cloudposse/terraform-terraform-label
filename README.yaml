@@ -1,36 +1,185 @@
 name: terraform-terraform-label
 license: APACHE2
 github_repo: cloudposse/terraform-terraform-label
+
+deprecated:
+  notice: |-
+    This module was an experimental fork and is now obsolete and will not be maintained.
+    Any projects using `terraform-terraform-label` are encouraged to switch to using
+    [terraform-null-label](https://github.com/cloudposse/terraform-null-label),
+    which is actively maintained and used by all current Cloud Posse Terraform modules.
+
+    This module was a fork of [terraform-null-label](https://github.com/cloudposse/terraform-null-label), made
+    at a time when that project was using the Terraform `null` provider (hence the "null" in the name), in order
+    to remove the `null` provider dependency. This was accomplished by removing outputs that required the `null`
+    provider.
+
+    With the features that became available in Terraform 0.12, the `terraform-null-label` project was able
+    to retain all of its features and also
+    [remove the `null` provider](https://github.com/cloudposse/terraform-null-label/commit/d6d24b80d687e76e029f39f444d0163b42c5d5e0),
+    removing any incentive to further develop `terraform-terraform-label`.
+
+    With the key distinguishing feature of `terraform-terraform-label` no longer being a distinguishing feature,
+    this module was no longer necessary, and all focus returned to maintaining and enhancing `terraform-null-label`,
+    which now far surpasses this module in functionality.
+
 badges:
-  - name: Latest Release
-    image: https://img.shields.io/github/release/cloudposse/terraform-terraform-label.svg
-    url: https://github.com/cloudposse/terraform-terraform-label/releases/latest
-  - name: Slack Community
-    image: https://slack.cloudposse.com/badge.svg
-    url: https://slack.cloudposse.com
+- name: Latest Release
+  image: https://img.shields.io/github/release/cloudposse/terraform-terraform-label.svg
+  url: https://github.com/cloudposse/terraform-terraform-label/releases/latest
+- name: Slack Community
+  image: https://slack.cloudposse.com/badge.svg
+  url: https://slack.cloudposse.com
 related:
-  - name: terraform-null-label
-    description:
-      Terraform Module to define a consistent naming convention by (namespace,
-      stage, name, [attributes])
-    url: https://github.com/cloudposse/terraform-null-label
+- name: terraform-null-label
+  description: Terraform Module to define a consistent naming convention by (namespace,
+    stage, name, [attributes])
+  url: https://github.com/cloudposse/terraform-null-label
 description: |-
-  # DEPRECATED: This module is no longer actively maintained -- Please use [cloudposse/terraform-null-label](https://github.com/cloudposse/terraform-null-label) instead.
+  Terraform module designed to generate consistent label names and tags for resources. Use `terraform-terraform-label` to implement a strict naming convention.
 
-  This module is now antiquated as all future label development is done on [terraform-null-label](https://github.com/cloudposse/terraform-null-label).
 
+  #### `terraform-terraform-label` is a fork of [terraform-null-label](https://github.com/cloudposse/terraform-null-label) which uses only the core Terraform provider.
+
+  A label follows the following convention: `{namespace}-{stage}-{name}-{attributes}`. The delimiter (e.g. `-`) is interchangeable.
+
+  It's recommended to use one `terraform-terraform-label` module for every unique resource of a given resource type.
+  For example, if you have 10 instances, there should be 10 different labels.
+  However, if you have multiple different kinds of resources (e.g. instances, security groups, file systems, and elastic IPs), then they can all share the same label assuming they are logically related.
+
+  All [Cloud Posse modules](https://github.com/cloudposse?utf8=%E2%9C%93&q=terraform-&type=&language=) use
+  the related [terraform-null-label](https://github.com/cloudposse/terraform-null-label) module to ensure resources can be instantiated multiple times within an account and without conflict.
+
+  **NOTE:** The second `terraform` word in `terraform-terraform-label` refers to the primary Terraform provider used in this module.
 usage: |-
-  # See deprecation notice above.
+  ### Simple Example
 
+  Include this repository as a module in your existing terraform code:
+
+  ```hcl
+  module "eg_prod_bastion_label" {
+    source = "cloudposse/label/terraform"
+    # Cloud Posse recommends pinning every module to a specific version
+    # version = "x.x.x"
+    namespace  = "eg"
+    stage      = "prod"
+    name       = "bastion"
+    attributes = ["public"]
+    delimiter  = "-"
+
+    tags = {
+      "BusinessUnit" = "XYZ",
+      "Snapshot"     = "true"
+    }
+  }
+  ```
+
+  This will create an `id` with the value of `eg-prod-bastion-public`.
+
+  Now reference the label when creating an instance (for example):
+
+  ```hcl
+  resource "aws_instance" "eg_prod_bastion_public" {
+    instance_type = "t1.micro"
+    tags          = module.eg_prod_bastion_label.tags
+  }
+  ```
+
+  Or define a security group:
+
+  ```hcl
+  resource "aws_security_group" "eg_prod_bastion_public" {
+    vpc_id = var.vpc_id
+    name   = module.eg_prod_bastion_label.id
+    tags   = module.eg_prod_bastion_label.tags
+    egress {
+      from_port   = 0
+      to_port     = 0
+      protocol    = "-1"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+  ```
+
+
+  ### Advanced Example
+
+  Here is a more complex example with two instances using two different labels. Note how efficiently the tags are defined for both the instance and the security group.
+
+  ```hcl
+  module "eg_prod_bastion_abc_label" {
+    source = "cloudposse/label/terraform"
+    # Cloud Posse recommends pinning every module to a specific version
+    # version = "x.x.x"
+    namespace  = "eg"
+    stage      = "prod"
+    name       = "bastion"
+    attributes = ["abc"]
+    delimiter  = "-"
+
+    tags = {
+      "BusinessUnit" = "ABC"
+    }
+  }
+
+  resource "aws_security_group" "eg_prod_bastion_abc" {
+    name = module.eg_prod_bastion_abc_label.id
+    tags = module.eg_prod_bastion_abc_label.tags
+    ingress {
+      from_port   = 22
+      to_port     = 22
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+
+  resource "aws_instance" "eg_prod_bastion_abc" {
+    instance_type          = "t1.micro"
+    tags                   = module.eg_prod_bastion_abc_label.tags
+    vpc_security_group_ids = [aws_security_group.eg_prod_bastion_abc.id]
+  }
+
+  module "eg_prod_bastion_xyz_label" {
+    source = "cloudposse/label/terraform"
+    # Cloud Posse recommends pinning every module to a specific version
+    # version = "x.x.x"
+    namespace  = "eg"
+    stage      = "prod"
+    name       = "bastion"
+    attributes = ["xyz"]
+    delimiter  = "-"
+
+    tags = {
+      "BusinessUnit" = "XYZ"
+    }
+  }
+
+  resource "aws_security_group" "eg_prod_bastion_xyz" {
+    name = module.eg_prod_bastion_xyz_label.id
+    tags = module.eg_prod_bastion_xyz_label.tags
+    ingress {
+      from_port   = 22
+      to_port     = 22
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+
+  resource "aws_instance" "eg_prod_bastion_xyz" {
+    instance_type          = "t1.micro"
+    tags                   = module.eg_prod_bastion_xyz_label.tags
+    vpc_security_group_ids = [aws_security_group.eg_prod_bastion_xyz.id]
+  }
+  ```
 include:
-  - docs/targets.md
-  - docs/terraform.md
+- docs/targets.md
+- docs/terraform.md
 contributors:
-  - name: Erik Osterman
-    github: osterman
-  - name: Sarkis Varozian
-    github: sarkis
-  - name: Andriy Knysh
-    github: aknysh
-  - name: Jamie Nelson
-    github: Jamie-BitFlight
+- name: Erik Osterman
+  github: osterman
+- name: Sarkis Varozian
+  github: sarkis
+- name: Andriy Knysh
+  github: aknysh
+- name: Jamie Nelson
+  github: Jamie-BitFlight
