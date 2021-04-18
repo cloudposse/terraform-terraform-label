@@ -1,6 +1,28 @@
 name: terraform-terraform-label
 license: APACHE2
 github_repo: cloudposse/terraform-terraform-label
+
+deprecated:
+  notice: |-
+    This module was an experimental fork and is now obsolete and will not be maintained.
+    Any projects using `terraform-terraform-label` are encouraged to switch to using
+    [terraform-null-label](https://github.com/cloudposse/terraform-null-label),
+    which is actively maintained and used by all current Cloud Posse Terraform modules.
+
+    This module was a fork of [terraform-null-label](https://github.com/cloudposse/terraform-null-label), made
+    at a time when that project was using the Terraform `null` provider (hence the "null" in the name), in order
+    to remove the `null` provider dependency. This was accomplished by removing outputs that required the `null`
+    provider.
+
+    With the features that became available in Terraform 0.12, the `terraform-null-label` project was able
+    to retain all of its features and also
+    [remove the `null` provider](https://github.com/cloudposse/terraform-null-label/commit/d6d24b80d687e76e029f39f444d0163b42c5d5e0),
+    removing any incentive to further develop `terraform-terraform-label`.
+
+    With the key distinguishing feature of `terraform-terraform-label` no longer being a distinguishing feature,
+    this module was no longer necessary, and all focus returned to maintaining and enhancing `terraform-null-label`,
+    which now far surpasses this module in functionality.
+
 badges:
 - name: Latest Release
   image: https://img.shields.io/github/release/cloudposse/terraform-terraform-label.svg
@@ -25,7 +47,8 @@ description: |-
   For example, if you have 10 instances, there should be 10 different labels.
   However, if you have multiple different kinds of resources (e.g. instances, security groups, file systems, and elastic IPs), then they can all share the same label assuming they are logically related.
 
-  All [Cloud Posse modules](https://github.com/cloudposse?utf8=%E2%9C%93&q=terraform-&type=&language=) use this module to ensure resources can be instantiated multiple times within an account and without conflict.
+  All [Cloud Posse modules](https://github.com/cloudposse?utf8=%E2%9C%93&q=terraform-&type=&language=) use
+  the related [terraform-null-label](https://github.com/cloudposse/terraform-null-label) module to ensure resources can be instantiated multiple times within an account and without conflict.
 
   **NOTE:** The second `terraform` word in `terraform-terraform-label` refers to the primary Terraform provider used in this module.
 usage: |-

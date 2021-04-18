@@ -1,5 +1,8 @@
+
 <!-- markdownlint-disable -->
-# terraform-terraform-label [![Latest Release](https://img.shields.io/github/release/cloudposse/terraform-terraform-label.svg)](https://github.com/cloudposse/terraform-terraform-label/releases/latest) [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
+# (deprecated) terraform-terraform-label
+
+[![deprecated](https://img.shields.io/badge/lifecycle-deprecated-critical)](#deprecated) [![Latest Release](https://img.shields.io/github/release/cloudposse/terraform-terraform-label.svg)](https://github.com/cloudposse/terraform-terraform-label/releases/latest) [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
 <!-- markdownlint-restore -->
 
 [![README Header][readme_header_img]][readme_header_link]
@@ -27,6 +30,32 @@
 
 -->
 
+## Deprecated
+
+This module was an experimental fork and is now obsolete and will not be maintained.
+Any projects using `terraform-terraform-label` are encouraged to switch to using
+[terraform-null-label](https://github.com/cloudposse/terraform-null-label),
+which is actively maintained and used by all current Cloud Posse Terraform modules.
+
+This module was a fork of [terraform-null-label](https://github.com/cloudposse/terraform-null-label), made
+at a time when that project was using the Terraform `null` provider (hence the "null" in the name), in order
+to remove the `null` provider dependency. This was accomplished by removing outputs that required the `null`
+provider.
+
+With the features that became available in Terraform 0.12, the `terraform-null-label` project was able
+to retain all of its features and also
+[remove the `null` provider](https://github.com/cloudposse/terraform-null-label/commit/d6d24b80d687e76e029f39f444d0163b42c5d5e0),
+removing any incentive to further develop `terraform-terraform-label`.
+
+With the key distinguishing feature of `terraform-terraform-label` no longer being a distinguishing feature,
+this module was no longer necessary, and all focus returned to maintaining and enhancing `terraform-null-label`,
+which now far surpasses this module in functionality.
+
+We literally have [*hundreds of other terraform modules*][terraform_modules] that are Open Source and well-maintained. Check them out!
+
+
+### Historical Description
+
 Terraform module designed to generate consistent label names and tags for resources. Use `terraform-terraform-label` to implement a strict naming convention.
 
 
@@ -38,14 +67,14 @@ It's recommended to use one `terraform-terraform-label` module for every unique 
 For example, if you have 10 instances, there should be 10 different labels.
 However, if you have multiple different kinds of resources (e.g. instances, security groups, file systems, and elastic IPs), then they can all share the same label assuming they are logically related.
 
-All [Cloud Posse modules](https://github.com/cloudposse?utf8=%E2%9C%93&q=terraform-&type=&language=) use this module to ensure resources can be instantiated multiple times within an account and without conflict.
+All [Cloud Posse modules](https://github.com/cloudposse?utf8=%E2%9C%93&q=terraform-&type=&language=) use
+the related [terraform-null-label](https://github.com/cloudposse/terraform-null-label) module to ensure resources can be instantiated multiple times within an account and without conflict.
 
 **NOTE:** The second `terraform` word in `terraform-terraform-label` refers to the primary Terraform provider used in this module.
 
-
 ---
 
-This project is part of our comprehensive ["SweetOps"](https://cpco.io/sweetops) approach towards DevOps.
+This project was part of our comprehensive ["SweetOps"](https://cpco.io/sweetops) approach towards DevOps.
 [<img align="right" title="Share via Email" src="https://docs.cloudposse.com/images/ionicons/ios-email-outline-2.0.1-16x16-999999.svg"/>][share_email]
 [<img align="right" title="Share on Google+" src="https://docs.cloudposse.com/images/ionicons/social-googleplus-outline-2.0.1-16x16-999999.svg" />][share_googleplus]
 [<img align="right" title="Share on Facebook" src="https://docs.cloudposse.com/images/ionicons/social-facebook-outline-2.0.1-16x16-999999.svg" />][share_facebook]
@@ -66,11 +95,6 @@ It's 100% Open Source and licensed under the [APACHE2](LICENSE).
 
 
 
-We literally have [*hundreds of terraform modules*][terraform_modules] that are Open Source and well-maintained. Check them out!
-
-
-
-
 
 
 
@@ -80,6 +104,7 @@ Security scanning is graciously provided by Bridgecrew. Bridgecrew is the leadin
 
 | Benchmark | Description |
 |--------|---------------|
+| [![deprecated](https://img.shields.io/badge/lifecycle-deprecated-critical)](#deprecated) | This project is no longer being maintained |
 | [![Infrastructure Security](https://www.bridgecrew.cloud/badges/github/cloudposse/terraform-terraform-label/general)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=cloudposse%2Fterraform-terraform-label&benchmark=INFRASTRUCTURE+SECURITY) | Infrastructure Security Compliance |
 | [![CIS KUBERNETES](https://www.bridgecrew.cloud/badges/github/cloudposse/terraform-terraform-label/cis_kubernetes)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=cloudposse%2Fterraform-terraform-label&benchmark=CIS+KUBERNETES+V1.5) | Center for Internet Security, KUBERNETES Compliance |
 | [![CIS AWS](https://www.bridgecrew.cloud/badges/github/cloudposse/terraform-terraform-label/cis_aws)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=cloudposse%2Fterraform-terraform-label&benchmark=CIS+AWS+V1.2) | Center for Internet Security, AWS Compliance |
@@ -229,83 +254,6 @@ resource "aws_instance" "eg_prod_bastion_xyz" {
 
 
 
-
-
-
-<!-- markdownlint-disable -->
-## Makefile Targets
-```text
-Available targets:
-
-  help                                Help screen
-  help/all                            Display help for all targets
-  help/short                          This help short screen
-  lint                                Lint terraform code
-
-```
-<!-- markdownlint-restore -->
-<!-- markdownlint-disable -->
-## Requirements
-
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.0 |
-
-## Providers
-
-No providers.
-
-## Modules
-
-No modules.
-
-## Resources
-
-No resources.
-
-## Inputs
-
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_attributes"></a> [attributes](#input\_attributes) | Additional attributes (e.g. `1`) | `list(string)` | `[]` | no |
-| <a name="input_convert_case"></a> [convert\_case](#input\_convert\_case) | Convert fields to lower case | `bool` | `true` | no |
-| <a name="input_delimiter"></a> [delimiter](#input\_delimiter) | Delimiter to be used between `namespace`, `stage`, `name` and `attributes` | `string` | `"-"` | no |
-| <a name="input_enabled"></a> [enabled](#input\_enabled) | Set to false to prevent the module from creating any resources | `bool` | `true` | no |
-| <a name="input_name"></a> [name](#input\_name) | Solution name, e.g. `app` or `jenkins` | `string` | `""` | no |
-| <a name="input_namespace"></a> [namespace](#input\_namespace) | Namespace, which could be your organization name or abbreviation, e.g. 'eg' or 'cp' | `string` | `""` | no |
-| <a name="input_stage"></a> [stage](#input\_stage) | Stage, e.g. 'prod', 'staging', 'dev' | `string` | `""` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | Additional tags (e.g. `map('BusinessUnit','XYZ')`) | `map(string)` | `{}` | no |
-
-## Outputs
-
-| Name | Description |
-|------|-------------|
-| <a name="output_attributes"></a> [attributes](#output\_attributes) | Normalized attributes |
-| <a name="output_delimiter"></a> [delimiter](#output\_delimiter) | Delimiter between `namespace`, `stage`, `name` and `attributes` |
-| <a name="output_id"></a> [id](#output\_id) | Disambiguated ID |
-| <a name="output_name"></a> [name](#output\_name) | Normalized name |
-| <a name="output_namespace"></a> [namespace](#output\_namespace) | Normalized namespace |
-| <a name="output_stage"></a> [stage](#output\_stage) | Normalized stage |
-| <a name="output_tags"></a> [tags](#output\_tags) | Normalized Tag map |
-<!-- markdownlint-restore -->
-
-
-
-## Share the Love
-
-Like this project? Please give it a ★ on [our GitHub](https://github.com/cloudposse/terraform-terraform-label)! (it helps us **a lot**)
-
-Are you using this project or any of our other projects? Consider [leaving a testimonial][testimonial]. =)
-
-
-## Related Projects
-
-Check out these related projects.
-
-- [terraform-null-label](https://github.com/cloudposse/terraform-null-label) - Terraform Module to define a consistent naming convention by (namespace, stage, name, [attributes])
-
-
-
 ## Help
 
 **Got a question?** We got answers.
@@ -354,25 +302,6 @@ Sign up for [our newsletter][newsletter] that covers everything on our technolog
 
 [![zoom](https://img.cloudposse.com/fit-in/200x200/https://cloudposse.com/wp-content/uploads/2019/08/Powered-by-Zoom.png")][office_hours]
 
-## Contributing
-
-### Bug Reports & Feature Requests
-
-Please use the [issue tracker](https://github.com/cloudposse/terraform-terraform-label/issues) to report any bugs or file feature requests.
-
-### Developing
-
-If you are interested in being a contributor and want to get involved in developing this project or [help out](https://cpco.io/help-out) with our other projects, we would love to hear from you! Shoot us an [email][email].
-
-In general, PRs are welcome. We follow the typical "fork-and-pull" Git workflow.
-
- 1. **Fork** the repo on GitHub
- 2. **Clone** the project to your own machine
- 3. **Commit** changes to your own branch
- 4. **Push** your work back up to your fork
- 5. Submit a **Pull Request** so that we can review your changes
-
-**NOTE:** Be sure to merge the latest changes from "upstream" before making a pull request!
 
 
 ## Copyright
