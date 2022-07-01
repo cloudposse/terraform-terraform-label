@@ -306,7 +306,7 @@ Sign up for [our newsletter][newsletter] that covers everything on our technolog
 
 ## Copyright
 
-Copyright © 2017-2021 [Cloud Posse, LLC](https://cpco.io/copyright)
+Copyright © 2017-2022 [Cloud Posse, LLC](https://cpco.io/copyright)
 
 
 
