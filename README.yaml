@@ -24,17 +24,21 @@ deprecated:
     which now far surpasses this module in functionality.
 
 badges:
-- name: Latest Release
-  image: https://img.shields.io/github/release/cloudposse/terraform-terraform-label.svg
-  url: https://github.com/cloudposse/terraform-terraform-label/releases/latest
-- name: Slack Community
-  image: https://slack.cloudposse.com/badge.svg
-  url: https://slack.cloudposse.com
+  - name: Latest Release
+    image: https://img.shields.io/github/release/cloudposse/terraform-terraform-label.svg?style=for-the-badge
+    url: https://github.com/cloudposse/terraform-terraform-label/releases/latest
+  - name: Last Updated
+    image: https://img.shields.io/github/last-commit/cloudposse/terraform-terraform-label.svg?style=for-the-badge
+    url: https://github.com/cloudposse/terraform-terraform-label/commits
+  - name: Slack Community
+    image: https://slack.cloudposse.com/for-the-badge.svg
+    url: https://slack.cloudposse.com
+
+# List any related terraform modules that this module may be used with or that this module depends on.
 related:
-- name: terraform-null-label
-  description: Terraform Module to define a consistent naming convention by (namespace,
-    stage, name, [attributes])
-  url: https://github.com/cloudposse/terraform-null-label
+  - name: terraform-null-label
+    description: Terraform Module to define a consistent naming convention by (namespace, stage, name, [attributes])
+    url: https://github.com/cloudposse/terraform-null-label
 description: |-
   Terraform module designed to generate consistent label names and tags for resources. Use `terraform-terraform-label` to implement a strict naming convention.
 
@@ -172,14 +176,6 @@ usage: |-
   }
   ```
 include:
-- docs/targets.md
-- docs/terraform.md
-contributors:
-- name: Erik Osterman
-  github: osterman
-- name: Sarkis Varozian
-  github: sarkis
-- name: Andriy Knysh
-  github: aknysh
-- name: Jamie Nelson
-  github: Jamie-BitFlight
+  - docs/targets.md
+  - docs/terraform.md
+contributors: []
