@@ -1,7 +1,7 @@
 
 
 <!-- markdownlint-disable -->
-# (deprecated) terraform-terraform-label<img src="https://img.shields.io/badge/lifecycle-deprecated-critical?style=for-the-badge" alt="Deprecated"/><a href="https://github.com/cloudposse/terraform-terraform-label/releases/latest"><img src="https://img.shields.io/github/release/cloudposse/terraform-terraform-label.svg?style=for-the-badge" alt="Latest Release"/></a><a href="https://github.com/cloudposse/terraform-terraform-label/commits"><img src="https://img.shields.io/github/last-commit/cloudposse/terraform-terraform-label.svg?style=for-the-badge" alt="Last Updated"/></a><a href="https://slack.cloudposse.com"><img src="https://slack.cloudposse.com/for-the-badge.svg" alt="Slack Community"/></a>
+# (deprecated) terraform-terraform-label<img src="https://img.shields.io/badge/lifecycle-deprecated-critical?style=for-the-badge" alt="Deprecated"/><a href="https://github.com/cloudposse/terraform-terraform-label/releases/latest"><img src="https://img.shields.io/github/release/cloudposse/terraform-terraform-label.svg?style=for-the-badge" alt="Latest Release"/></a><a href="https://github.com/cloudposse/terraform-terraform-label/commits"><img src="https://img.shields.io/github/last-commit/cloudposse/terraform-terraform-label.svg?style=for-the-badge" alt="Last Updated"/></a><a href="https://slack.cloudposse.com"><img src="https://slack.cloudposse.com/for-the-badge.svg" alt="Slack Community"/></a></p>
 <!-- markdownlint-restore -->
 
 <!--
