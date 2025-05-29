@@ -1,7 +1,7 @@
 
 
 <!-- markdownlint-disable -->
-# (deprecated) terraform-terraform-label<img src="https://img.shields.io/badge/lifecycle-deprecated-critical?style=for-the-badge" alt="Deprecated"/><a href="https://github.com/cloudposse/terraform-terraform-label/releases/latest"><img src="https://img.shields.io/github/release/cloudposse/terraform-terraform-label.svg?style=for-the-badge" alt="Latest Release"/></a><a href="https://github.com/cloudposse/terraform-terraform-label/commits"><img src="https://img.shields.io/github/last-commit/cloudposse/terraform-terraform-label.svg?style=for-the-badge" alt="Last Updated"/></a><a href="https://slack.cloudposse.com"><img src="https://slack.cloudposse.com/for-the-badge.svg" alt="Slack Community"/></a></p>
+# (deprecated) terraform-terraform-label<img src="https://img.shields.io/badge/lifecycle-deprecated-critical?style=for-the-badge" alt="Deprecated"/><a href="https://github.com/cloudposse/terraform-terraform-label/releases/latest"><img src="https://img.shields.io/github/release/cloudposse/terraform-terraform-label.svg?style=for-the-badge" alt="Latest Release"/></a><a href="https://github.com/cloudposse/terraform-terraform-label/commits"><img src="https://img.shields.io/github/last-commit/cloudposse/terraform-terraform-label.svg?style=for-the-badge" alt="Last Updated"/></a><a href="https://cloudposse.com/slack"><img src="https://slack.cloudposse.com/for-the-badge.svg" alt="Slack Community"/></a></p>
 <!-- markdownlint-restore -->
 
 <!--
@@ -75,7 +75,7 @@ the related [terraform-null-label](https://github.com/cloudposse/terraform-null-
 >
 > <details>
 > <summary><strong>Watch demo of using Atmos with Terraform</strong></summary>
-> <img src="https://github.com/cloudposse/atmos/blob/master/docs/demo.gif?raw=true"/><br/>
+> <img src="https://github.com/cloudposse/atmos/blob/main/docs/demo.gif?raw=true"/><br/>
 > <i>Example of running <a href="https://atmos.tools"><code>atmos</code></a> to manage infrastructure from our <a href="https://atmos.tools/quick-start/">Quick Start</a> tutorial.</i>
 > </detalis>
 
@@ -254,7 +254,7 @@ All other trademarks referenced herein are the property of their respective owne
 
 
 ---
-Copyright © 2017-2024 [Cloud Posse, LLC](https://cpco.io/copyright)
+Copyright © 2017-2025 [Cloud Posse, LLC](https://cpco.io/copyright)
 
 
 <a href="https://cloudposse.com/readme/footer/link?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-terraform-label&utm_content=readme_footer_link"><img alt="README footer" src="https://cloudposse.com/readme/footer/img"/></a>
